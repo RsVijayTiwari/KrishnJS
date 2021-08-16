@@ -1,0 +1,22 @@
+{
+  "name": "krishnjs",
+  "version": "1.0.0",
+  "description": "The KrishnJS is a dom-manipulation library it helps the developer to develop interactive web pages without writing a huge line of code.",
+  "main": "/main/krishn.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RsVijayTiwari/KrishnJS.git"
+  },
+  "keywords": [
+    "krishnjs"
+  ],
+  "author": "Vijay Tiwari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RsVijayTiwari/KrishnJS/issues"
+  },
+  "homepage": "https://github.com/RsVijayTiwari/KrishnJS#readme"
+}
