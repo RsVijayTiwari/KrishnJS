@@ -9,9 +9,12 @@ https://cdn.jsdelivr.net/gh/RsVijayTiwari/KrishnJS@1.0/main/krishn.js
 
 To support the development of KrishnJS Library, Please buy me coffee https://www.buymeacoffee.com/vijaytiwari
 
+### To install the KrishnJS via npm use the following command:
+```bash
+npm install krishnjs
+```
 
 ## Example Code of KrishnJS
-
 #1. To Show an element in DOM, The function should be attach on the onclick listner in the DOM.
 
 ```bash
