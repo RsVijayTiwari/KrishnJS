@@ -13,6 +13,38 @@ function change_style(element_array, is_class_array, change_array, change_value_
 function continue_change_style(change_array, target, change_value_array, i) {
     if (change_array[i] === "backgroundColor") {
         target.style.backgroundColor = change_value_array[i];
+    }else if (change_array[i] === "color"){
+        target.style.color = change_value_array[i];
+    }else if (change_array[i] === "display"){
+        target.style.display = change_value_array[i];
+    }else if (change_array[i] === "backgroundImage"){
+        target.style.backgroundImage = change_value_array[i];
+    }else if (change_array[i] === "border"){
+        target.style.border = change_value_array[i];
+    }else if (change_array[i] === "opacity"){
+        target.style.opacity = change_value_array[i];
+    }else if (change_array[i] === "borderRadius"){
+        target.style.borderRadius = change_value_array[i];
+    }else if (change_array[i] === "padding"){
+        target.style.padding = change_value_array[i];
+    }else if (change_array[i] === "paddingLeft"){
+        target.style.paddingLeft = change_value_array[i];
+    }else if (change_array[i] === "paddingRight"){
+        target.style.paddingRight = change_value_array[i];
+    }else if (change_array[i] === "paddingTop"){
+        target.style.paddingTop = change_value_array[i];
+    }else if (change_array[i] === "paddingBottom"){
+        target.style.paddingBottom = change_value_array[i];
+    }else if (change_array[i] === "margin"){
+        target.style.margin = change_value_array[i];
+    }else if (change_array[i] === "marginTop"){
+        target.style.marginTop = change_value_array[i];
+    }else if (change_array[i] === "marginBottom"){
+        target.style.marginBottom = change_value_array[i];
+    }else if (change_array[i] === "marginLeft"){
+        target.style.marginLeft = change_value_array[i];
+    }else if (change_array[i] === "marginRight"){
+        target.style.marginRight = change_value_array[i];
     }
 }
 function container_visibility(type, element_array, is_class) {
