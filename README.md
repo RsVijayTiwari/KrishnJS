@@ -5,7 +5,7 @@ The KrishnJS is a dom-manipulation library it helps the developer to develop int
 
 
 To Load the KrishnJS library from the URL,
-https://cdn.jsdelivr.net/gh/RsVijayTiwari/KrishnJS@1.0.0/main/krishn.js
+https://cdn.jsdelivr.net/gh/RsVijayTiwari/KrishnJS@1.0.1/main/krishn.js
 
 To support the development of KrishnJS Library, Please buy me coffee https://www.buymeacoffee.com/vijaytiwari
 
