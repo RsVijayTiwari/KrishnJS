@@ -1,3 +1,130 @@
+/*
+KrishnJS The DOM Manipulation Javascript Library
+Create by Vijay Tiwari
+ */
+function chunkFetch() {
+    let z, i, elmnt, file, xhttp, js;
+    /*loop through a collection of all HTML elements:*/
+    z = document.getElementsByTagName("*");
+    for (i = 0; i < z.length; i++) {
+        elmnt = z[i];
+        /*search for elements with a certain atrribute:*/
+        file = elmnt.getAttribute("chunks");
+        js = elmnt.getAttribute("handler")
+        js2 = elmnt.getAttribute('handlerI')
+        if (file) {
+            /*make an HTTP request using the attribute value as the file name:*/
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState === 4) {
+                    if (this.status === 200) {
+                        elmnt.innerHTML = this.responseText;
+                        if (js === null) {
+                        } else {
+                            attach_js(js, 'js');
+                        }
+                        if (js2 === null) {
+                        } else {
+                            attach_js(js2, 'js')
+                        }
+
+                    }
+                    if (this.status === 404) {
+                        elmnt.innerHTML = "Page not found.";
+                    }
+                    /*remove the attribute, and call this function once more:*/
+                    elmnt.removeAttribute("chunks");
+                    includeHTML();
+
+                }
+            }
+            xhttp.open("GET", file, true);
+            xhttp.responseType = 'text';
+            xhttp.send();
+            /*exit the function:*/
+            return;
+        }
+    }
+}
+
+function attach_js(filename, filetype) {
+    let fileref;
+    if (filetype === "js") { //if filename is a external JavaScript file
+        fileref = document.createElement('script');
+        fileref.setAttribute("type", "text/javascript")
+        fileref.setAttribute("src", filename)
+    } else if (filetype === "css") { //if filename is an external CSS file
+        fileref = document.createElement("link");
+        fileref.setAttribute("rel", "stylesheet")
+        fileref.setAttribute("type", "text/css")
+        fileref.setAttribute("href", filename)
+    }
+    if (typeof fileref != "undefined")
+        document.getElementsByTagName("head")[0].appendChild(fileref)
+}
+
+function fadeout(element) {
+    var op = 1;  // initial opacity
+    var timer = setInterval(function () {
+        if (op <= 0.1) {
+            clearInterval(timer);
+            element.style.display = 'none';
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op -= op * 0.1;
+    }, 50);
+}
+
+function fadeIn(element) {
+    var op = 0.1;  // initial opacity
+    element.style.display = 'block';
+    var timer = setInterval(function () {
+        if (op >= 1) {
+            clearInterval(timer);
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op += op * 0.1;
+    }, 10);
+}
+
+function parseURLParams(url) {
+    var queryStart = url.indexOf("?") + 1,
+        queryEnd = url.indexOf("#") + 1 || url.length + 1,
+        query = url.slice(queryStart, queryEnd - 1),
+        pairs = query.replace(/\+/g, " ").split("&"),
+        parms = {}, i, n, v, nv;
+
+    if (query === url || query === "") return;
+
+    for (i = 0; i < pairs.length; i++) {
+        nv = pairs[i].split("=", 2);
+        n = decodeURIComponent(nv[0]);
+        v = decodeURIComponent(nv[1]);
+
+        if (!parms.hasOwnProperty(n)) parms[n] = [];
+        parms[n].push(nv.length === 2 ? v : null);
+    }
+    return parms;
+}
+
+function quillGetHTML(inputDelta) {
+    var tempCont = document.createElement("div");
+    (new Quill(tempCont)).setContents(inputDelta);
+    return tempCont.getElementsByClassName("ql-editor")[0].innerHTML;
+}
+
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
 function defineElement(e, attr, value, append) {
     let el = document.createElement(e);
     for (let i = 0; i < attr.length; i++) {
@@ -29,6 +156,9 @@ function defineElement(e, attr, value, append) {
             el.style.textDecoration = value[i];
         }else if (attr[i] === "transform"){
             el.style.transform = value[i];
+        }else if (attr[i] === "setAttribute"){
+            let split = value[i].split(".");
+            el.setAttribute(split[0], split[1]);
         }
     }
     for (let i = 0; i < append.length; i++) {
@@ -206,3 +336,7 @@ function send_request(csrf_boolean, request_type, url_string, async_boolean, jso
         send_auth.send();
     }
 }
+
+/*
+KrishnJS END!
+ */
