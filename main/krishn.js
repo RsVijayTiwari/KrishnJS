@@ -34,7 +34,7 @@ function chunkFetch() {
                     }
                     /*remove the attribute, and call this function once more:*/
                     elmnt.removeAttribute("chunks");
-                    includeHTML();
+                    chunkFetch();
 
                 }
             }
