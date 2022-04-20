@@ -29,3 +29,16 @@ container_visibility('hide', ['class_name'], [true]);
 change_style(['element_class'], [true], ['backgroundColor'], ['#000']);
 
 ```
+#3. To send **Post** request to the backend server associated with the **Django CSRF Token** and post the **JSON DATA**
+```bash
+send_request(false, "POST", "url", true, {
+    "parameter": "value"
+}, false, function (response) {
+    console.log(response);
+});
+```
+In above the example the parameter are **csrf_token**, **request_type**, **url_string**, **async_boolean**, **json_data**, **send_data_boolean**, **function(reverse_callback)**
+
+See the source code for detailed instruction!
+
+**Project Maintainer: Vijay Tiwari**
