@@ -39,6 +39,16 @@ send_request(false, "POST", "url", true, {
 ```
 In above the example the parameter are **csrf_token**, **request_type**, **url_string**, **async_boolean**, **json_data**, **send_data_boolean**, **function(reverse_callback)**
 
-See the source code for detailed instruction!
+#4. Dynamically fetch and attach the javascript and css in DOM!
+```bash
+fetch_resources(src, callback, type, ref);
+```
+In above the example the listed parameter are src(URL of JS or CSS), callback(return function with the parameter status called s), type (string js or css) and ref(name of the fetch resources) 
 
+See the source code for detailed instruction!
+#5 Send file via KrishnJS by using the function send_file()
+```bash 
+send_file(form_data, csrf_boolean, request_type, url_string, async_boolean, send_data_boolean, callback)
+```
+In above the example the listed parameter are form_date(which append the file), csrf_boolean(true or false), request_type(should_be_post), async_boolean(true), send_data_boolean(true) and last function callback with r(response) parameter. 
 **Project Maintainer: Vijay Tiwari**
